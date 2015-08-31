@@ -8,6 +8,11 @@ def list_clients(shelter)
   shelter.clients.each_with_index{ |client, index| puts "Ref: #{index} / Name: #{client.name} / Age: #{client.age} / Gender:#{client.gender} / No. of pets: #{client.number_of_pets}"}
 end
 
+def list_animals(shelter)
+  shelter.animals.each_with_index{ |animal, index| puts "Ref: #{index} / Name: #{animal.name} / Species: #{animal.species} / Age: #{animal.age} / Gender: #{animal.gender} / Favourite toy: #{animal.favourite_toy}" }
+end
+
+
 def menu
   puts `clear`
   puts '*' * 52
@@ -37,7 +42,7 @@ while response.downcase != 'q'
     puts 'Enter client gender (m/f): '
     client_gender = gets.chomp
 
-    puts 'Enter client\s number of pets: '
+    puts 'Enter client\'s number of pets: '
     client_no_of_pets = gets.to_i
 
     shelter.add_client(client_name,client_age,client_gender,client_no_of_pets)
@@ -48,9 +53,29 @@ while response.downcase != 'q'
     gets
 
   when '3' # Add a new animal to the adoption list
+
+    puts 'What is your pet\'s name?'
+    animal_name = gets.chomp
+
+    puts "What species is #{animal_name}?"
+    animal_species = gets.chomp
+
+    puts "How old is #{animal_name}?"
+    animal_age = gets.chomp
+
+    puts "What gender is #{animal_name}?"
+    animal_gender= gets.chomp
+
+    puts "What is #{animal_name}\'s favourite toy?"
+    animal_favourite_toy = gets.chomp
+
+    shelter.add_animal(animal_name, animal_species, animal_age, animal_gender, animal_favourite_toy)
   
   when '4' # List animals in the shelter
-  end
+    puts 'Current animals available for adoption: '
+    list_animals(shelter)
+    gets
+end
 
   response = menu
 
