@@ -53,24 +53,29 @@ while response.downcase != 'q'
     gets
 
   when '3' # Add a new animal to the adoption list
+    if shelter.animals.length < 2
 
-    puts 'What is your pet\'s name?'
-    animal_name = gets.chomp
+      puts 'What is your pet\'s name?'
+      animal_name = gets.chomp
 
-    puts "What species is #{animal_name}?"
-    animal_species = gets.chomp
+      puts "What species is #{animal_name}?"
+      animal_species = gets.chomp
 
-    puts "How old is #{animal_name}?"
-    animal_age = gets.chomp
+      puts "How old is #{animal_name}?"
+      animal_age = gets.chomp
 
-    puts "What gender is #{animal_name}?"
-    animal_gender= gets.chomp
+      puts "What gender is #{animal_name}?"
+      animal_gender= gets.chomp
 
-    puts "What is #{animal_name}\'s favourite toy?"
-    animal_favourite_toy = gets.chomp
+      puts "What is #{animal_name}\'s favourite toy?"
+      animal_favourite_toy = gets.chomp
 
-    shelter.add_animal(animal_name, animal_species, animal_age, animal_gender, animal_favourite_toy)
-  
+      shelter.add_animal(animal_name, animal_species, animal_age, animal_gender, animal_favourite_toy)
+    else
+    puts 'Sorry, the shelter is full and we are not accepting animals for adoption.'
+    gets
+    end
+
   when '4' # List animals in the shelter
     puts 'Current animals available for adoption: '
     list_animals(shelter)
