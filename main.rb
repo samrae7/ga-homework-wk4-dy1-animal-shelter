@@ -15,6 +15,12 @@ end
 
 def menu
   puts `clear`
+  puts '               
+                        )..(                 
+                        (.o)  
+                       .(  )       
+                        ||||
+                        "``"'
   puts '*' * 52
   print "Welcome to Sam\'s Animal Sanctuary".center 50
   puts "\n"
